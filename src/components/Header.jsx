@@ -10,14 +10,11 @@ export default function Header() {
                     <Link className={mystyle.linktext} to="/">Hjem</Link>
                 </p>
                 <p>
-                    <Link className={mystyle.linktext} to="/first">Studierabatter</Link>
+                    <Link className={mystyle.linktext} to="/forward">Gik du kold i går?</Link>
                 </p>
                 <p>
-                    <Link className={mystyle.linktext} to="/second">Fredagsbarer</Link>
+                    <Link className={mystyle.linktext} to="/backward">Skal du hjem?</Link>
                 </p>
-                {/* <p>
-                    <Link className={mystyle.linktext} to="/third"></Link>
-                </p> */}
             </nav>
         </header>
     )
