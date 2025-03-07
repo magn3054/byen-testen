@@ -1,0 +1,17 @@
+.accordionitem {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 8px 0;
+    overflow: hidden;
+}
+
+.accordionheader {
+    background-color: #f7f7f7;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.accordioncontent {
+    padding: 16px;
+    background-color: #fff;
+}
