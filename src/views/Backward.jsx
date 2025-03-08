@@ -1,46 +1,83 @@
-import { useState } from 'react';
-import mystyle from "./Backward.module.css";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-function SecondPage() {
-    const itemlist = [
-        { id: "1", name: "item 1", desc: "item 1 description. A fja laædsj æaljf puæaasr." },
-        { id: "2", name: "item 2", desc: "item 2 description. A fgsugf lkhdj klahdj dkhf." },
-        { id: "3", name: "item 3", desc: "item 3 description. A kpidf kfd jfkji uows lsr." },
-    ];
-
-    const [bcolor, setBcolor] = useState("white");
-    const [tcolor, setTcolor] = useState("black");
-    const [message, setMessage] = useState("Click on an item to see its details");
-
-    const handleClick = (item) => {
-        setMessage(`Details for ${item.name} is: ${item.desc}`);
-    };
-
-    const changeColor = () => {
-        if (bcolor === "green") {
-            setBcolor("white");
-            setTcolor("black");
-        } else {
-            setBcolor("green")
-            setTcolor("white");
-        }
-    }
-
-    return (
-        <div style={{ backgroundColor: bcolor, color: tcolor }}>
-            <h1>Eventhandlers and useState</h1>
-            <ul>
-                {itemlist.map((item) => (
-                    <li className={mystyle.cursor} key={item.id} onClick={() => handleClick(item)}>
-                        {item.name}
-                    </li>
-                ))}
-            </ul>
-            {message}
-
-            <p><button onClick={changeColor}>Change color to green</button></p>
-        </div>
-    );
+// Define goal-driven decision tree
+const goals = {
+  "Tag hjem": [
+    { question: "Har klokken rundet 2 om morgenen?", answer: "Yes" },
+    { question: "Har du det dårligt?", answer: "Yes" }
+  ],
+  "Giv den gas": [
+    { question: "Har klokken rundet 2 om morgenen?", answer: "No" },
+    { question: "Har du din pung?", answer: "Yes" }
+  ],
+  "Luk kortet og tag hjem": [
+    { question: "Har du din pung?", answer: "No" },
+    { question: "Mangler der penge fra din bankkonto?", answer: "Yes" }
+  ],
+  "Fest videre og tag hjem med dine venner": [
+    { question: "Har du din pung?", answer: "No" },
+    { question: "Mangler der penge fra din bankkonto?", answer: "No" }
+  ]
 };
 
-export default SecondPage;
+export default function BackwardChaining() {
+  const [answers, setAnswers] = useState({});
+  const [currentQuestion, setCurrentQuestion] = useState("Har klokken rundet 2 om morgenen?");
+  const [conclusion, setConclusion] = useState(null);
+
+  const handleAnswer = (answer) => {
+    const newAnswers = { ...answers, [currentQuestion]: answer };
+    setAnswers(newAnswers);
+    
+    // Check if any goal is satisfied immediately after updating state
+    for (let goal in goals) {
+      const conditions = goals[goal];
+      if (conditions.every(cond => newAnswers[cond.question] === cond.answer)) {
+        setConclusion(goal);
+        return;
+      }
+    }
+    
+    // Get next question
+    const unanswered = Object.values(goals).flat().find(q => !(q.question in newAnswers));
+    if (unanswered) {
+      setCurrentQuestion(unanswered.question);
+    } else {
+      setConclusion("Ikke nok information");
+    }
+  };
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }}
+      className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 text-center"
+    >
+      <div className="bg-white p-6 rounded-2xl shadow-lg max-w-md w-full">
+        <h1 className="text-xl font-bold mb-4">Skal jeg tage hjem?</h1>
+        {conclusion ? (
+          <motion.p className="text-lg font-semibold text-green-600">{conclusion}</motion.p>
+        ) : (
+          <motion.div>
+            <p className="text-lg mb-4">{currentQuestion}</p>
+            <div className="flex space-x-4">
+              <button 
+                className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
+                onClick={() => handleAnswer("Yes")}
+              >
+                Ja
+              </button>
+              <button 
+                className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600"
+                onClick={() => handleAnswer("No")}
+              >
+                Nej
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
