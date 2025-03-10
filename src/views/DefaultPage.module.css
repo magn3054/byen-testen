@@ -1,9 +1,12 @@
 .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 16px 0;
+    background-color: #D9D9D9; /* Blå farve */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .card h1 {
@@ -14,18 +17,18 @@
     margin: 8px 0;
 }
 
-.card a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.card a:hover {
-    text-decoration: underline;
-}
 
 .flexcards {
     display: flex;
     justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
+}
+
+.button:hover {
+    background-color: #000000; /* Mørkere blå farve ved hover */
+}
+
+.button:active {
+    background-color: #000000; /* Endnu mørkere blå farve ved aktivt klik */
 }

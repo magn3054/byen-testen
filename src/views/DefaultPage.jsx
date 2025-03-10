@@ -4,13 +4,13 @@ import mystyle from "./DefaultPage.module.css";
 export default function DefaultPage() {
 
     const itemlist = [
-        { id: "forward", name: "Gik du kold i går?", desc: "Spørg vores " },
-        { id: "backward", name: "Skal du tage hjem?", desc: "item 2 description" },
+        { id: "forward", name: "Gik du kold i går?", desc: "Find ud af om du gik kold igår " },
+        { id: "backward", name: "Skal du tage hjem?", desc: "Hjælper dig med at beslutte om du burde tage hjem" },
     ]
 
     return (
-        <section style={{ border: "red solid 1px" }}>
-            <h1>Default page</h1>
+        <section style={{ }}>
+            <h1>BYEN TESTEN</h1>
             <div className={mystyle.flexcards}>
                 {itemlist.map((item, index) => (
                     <div key={index} className={mystyle.card}>
