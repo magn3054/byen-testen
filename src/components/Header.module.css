@@ -1,11 +1,23 @@
 .navigation {
     display: flex;
-    gap: 10px;
-    color: white;
-    background-color: darkslategray;
-    padding-left: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #688DB4;
+    padding: 10px 20px;
+}
+
+
+.logo {
+    height: 50px; /* Juster efter behov */
+}
+
+.links {
+    display: flex;
+    gap: 20px;
 }
 
 .linktext {
     color: white;
+    text-decoration: none;
+    font-size: large;
 }
