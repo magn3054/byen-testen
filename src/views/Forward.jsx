@@ -67,7 +67,7 @@ export default function DecisionTree() {
 
   return (
     <div className={style.container}>
-      <h1 style={{ fontSize: "28px", fontWeight: "bold", marginBottom: "20px" }}>Gik du kold i går?</h1>
+      <h1>Gik du kold i går?</h1>
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -77,7 +77,7 @@ export default function DecisionTree() {
           exit={{ opacity: 0, x: 20 }}
           transition={{ duration: 0.3 }}
         >
-          <p style={{ fontSize: "20px", marginBottom: "15px" }}>{currentNode.question}</p>
+          <p>{currentNode.question}</p>
 
           <div>
             {Object.keys(currentNode.options).map((option) => (
@@ -86,17 +86,18 @@ export default function DecisionTree() {
                 onClick={() => handleChoice(option)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                style={{
-                  margin: "8px",
-                  padding: "12px 24px",
-                  fontSize: "18px",
-                  cursor: "pointer",
-                  border: "none",
-                  borderRadius: "8px",
-                  backgroundColor: option === "Yes" ? "#4CAF50" : "#F44336",
-                  color: "white",
-                  transition: "background 0.3s",
-                }}
+                // style={{
+                //   margin: "8px",
+                //   padding: "12px 24px",
+                //   fontSize: "18px",
+                //   cursor: "pointer",
+                //   border: "none",
+                //   borderRadius: "8px",
+                //   backgroundColor: option === "Yes" ? "#4CAF50" : "#F44336",
+                //   color: "white",
+                //   transition: "background 0.3s",
+                // }}
+
               >
                 {option}
               </motion.button>
