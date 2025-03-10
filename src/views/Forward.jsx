@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import style from "./Forward.module.css";
 
-// Define decision tree as JSON
 const decisionTree = {
   question: "Kan du huske noget?",
   options: {
@@ -66,7 +66,7 @@ export default function DecisionTree() {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div className={style.container}>
       <h1 style={{ fontSize: "28px", fontWeight: "bold", marginBottom: "20px" }}>Gik du kold i går?</h1>
 
       <AnimatePresence mode="wait">

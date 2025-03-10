@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import style from "./Backward.module.css"; 
 
 // Define goal-driven decision tree
 const goals = {
@@ -29,7 +30,7 @@ export default function BackwardChaining() {
   const handleAnswer = (answer) => {
     const newAnswers = { ...answers, [currentQuestion]: answer };
     setAnswers(newAnswers);
-    
+
     // Check if any goal is satisfied immediately after updating state
     for (let goal in goals) {
       const conditions = goals[goal];
@@ -38,7 +39,7 @@ export default function BackwardChaining() {
         return;
       }
     }
-    
+
     // Get next question
     const unanswered = Object.values(goals).flat().find(q => !(q.question in newAnswers));
     if (unanswered) {
@@ -49,8 +50,8 @@ export default function BackwardChaining() {
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 text-center"
     >
@@ -62,16 +63,14 @@ export default function BackwardChaining() {
           <motion.div>
             <p className="text-lg mb-4">{currentQuestion}</p>
             <div className="flex space-x-4">
-              <button 
+              <button
                 className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
-                onClick={() => handleAnswer("Yes")}
-              >
+                onClick={() => handleAnswer("Yes")}>
                 Ja
               </button>
-              <button 
+              <button
                 className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600"
-                onClick={() => handleAnswer("No")}
-              >
+                onClick={() => handleAnswer("No")}>
                 Nej
               </button>
             </div>
