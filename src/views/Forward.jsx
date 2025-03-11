@@ -67,23 +67,25 @@ export default function DecisionTree() {
   return (
     <div className={style.container}>
       <h1>Gik du kold i går?</h1>
-      <p>{currentNode.question}</p>
-      <div>
-        {Object.keys(currentNode.options).map((option) => (
-          <button
-            key={option}
-            onClick={() => handleChoice(option)}
-            style={{ backgroundColor: option === "Ja" ? "green" : "red" }}
-          >
-            {option}
+      <section style={style.questionContainer}>
+        <h2>{currentNode.question}</h2>
+        <div>
+          {Object.keys(currentNode.options).map((option) => (
+            <button
+              key={option}
+              onClick={() => handleChoice(option)}
+              style={{ backgroundColor: option === "Ja" ? "green" : "red" }}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+        {history.length > 1 && (
+          <button onClick={goBack} className={style.backbutton}>
+            Tilbage
           </button>
-        ))}
-      </div>
-      {history.length > 1 && (
-        <button onClick={goBack} className={style.backbutton}>
-          Tilbage
-        </button>
-      )}
+        )}
+      </section>
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Layout() {
             <Header />
             <main className="mainpart">
                 <Outlet />
-                <Gif />
+                {/* <Gif /> */}
             </main>
             <Footer />
         </>

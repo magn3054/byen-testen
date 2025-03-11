@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import mystyle from "./DefaultPage.module.css";
-import Gif from "../components/Bajer";
 
 
 export default function DefaultPage() {
@@ -26,7 +25,6 @@ export default function DefaultPage() {
             </div>
         </section>
 
-        <Gif /> 
         </div>
         
     )
