@@ -1,7 +1,5 @@
 header {
-    border: green solid 1px;
     width: 100%;
-    background-color: red;
     display: flex;
     justify-content: space-evenly;
 }
@@ -11,14 +9,14 @@ header {
     width: 100%;
     justify-content: space-evenly;
     background-color: #5a58e3;
+    align-items: center;
+    font-size: 100%;
 }
 
-.navigation * {
-    border: red solid 1px;
-}
 
 .logo {
-    height: 2.5rem;
+    height: 8rem;
+    padding: 20px;
     border: none;
     font-weight: initial;
     color: initial;
