@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import style from "./Forward.module.css";
+import QuestionContainer from "../components/Question";
 
 const decisionTree = {
   question: "Kan du huske noget?",
@@ -67,6 +68,7 @@ export default function DecisionTree() {
 
   return (
     <div className={style.container}>
+      <QuestionContainer h1title="" />
       <h1>Gik du kold i går?</h1>
 
       <AnimatePresence mode="wait">
@@ -106,16 +108,7 @@ export default function DecisionTree() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          style={{
-            marginTop: "20px",
-            padding: "10px 20px",
-            fontSize: "16px",
-            cursor: "pointer",
-            border: "none",
-            borderRadius: "8px",
-            backgroundColor: "gray",
-            color: "white",
-          }}
+          className={style.backbutton}
         >
           Tilbage
         </motion.button>
