@@ -1,45 +1,43 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import style from "./Forward.module.css";
-import QuestionContainer from "../components/Question";
 
 const decisionTree = {
   question: "Kan du huske noget?",
   options: {
-    Yes: {
+    Ja: {
       question: "Har du moralske tømmerbobs?",
       options: {
-        Yes: "Du gik kold",
-        No: "Du gik ikke kold",
+        Ja: "Du gik kold",
+        Nej: "Du gik ikke kold",
       },
     },
-    No: {
+    Nej: {
       question: "Er du alene i din seng?",
       options: {
-        Yes: {
+        Ja: {
           question: "Svarer dine venner dig?",
           options: {
-            Yes: "Spørg dem om du gik kold",
-            No: "Du har sikkert været pinlig og gik kold",
+            Ja: "Spørg dem om du gik kold",
+            Nej: "Du har sikkert været pinlig og gik kold",
           },
         },
-        No: {
+        Nej: {
           question: "Kender du personen?",
           options: {
-            Yes: {
+            Ja: {
               question: "Er det en fejl?",
               options: {
-                Yes: {
+                Ja: {
                   question: "Er det din egen seng?",
                   options: {
-                    Yes: "You fucked og gik kold",
-                    No: "Du gik kold STIK AF!!",
+                    Ja: "You fucked og gik kold",
+                    Nej: "Du gik kold STIK AF!!",
                   },
                 },
-                No: "You good, spørg personen hvad der er sket",
+                Nej: "You good, spørg personen hvad der er sket",
               },
             },
-            No: "Sikke noget puha",
+            Nej: "Sikke noget puha",
           },
         },
       },
@@ -68,50 +66,23 @@ export default function DecisionTree() {
 
   return (
     <div className={style.container}>
-      <QuestionContainer h1title="" />
       <h1>Gik du kold i går?</h1>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentNode.question}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.3 }}
-        >
-          <p>{currentNode.question}</p>
-
-          <div>
-            {Object.keys(currentNode.options).map((option) => (
-              <motion.button
-                key={option}
-                onClick={() => handleChoice(option)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                style={{
-                  backgroundColor: option === "Yes" ? "green" : "red",
-                }}
-              >
-                {option}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
+      <p>{currentNode.question}</p>
+      <div>
+        {Object.keys(currentNode.options).map((option) => (
+          <button
+            key={option}
+            onClick={() => handleChoice(option)}
+            style={{ backgroundColor: option === "Ja" ? "green" : "red" }}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
       {history.length > 1 && (
-        <motion.button
-          onClick={goBack}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className={style.backbutton}
-        >
+        <button onClick={goBack} className={style.backbutton}>
           Tilbage
-        </motion.button>
+        </button>
       )}
     </div>
   );

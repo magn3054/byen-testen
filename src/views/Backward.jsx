@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import style from "./Backward.module.css"; 
+import style from "./Backward.module.css";
 
-// Define goal-driven decision tree
 const goals = {
   "Tag hjem": [
     { question: "Har klokken rundet 2 om morgenen?", answer: "Yes" },
@@ -31,7 +29,6 @@ export default function BackwardChaining() {
     const newAnswers = { ...answers, [currentQuestion]: answer };
     setAnswers(newAnswers);
 
-    // Check if any goal is satisfied immediately after updating state
     for (let goal in goals) {
       const conditions = goals[goal];
       if (conditions.every(cond => newAnswers[cond.question] === cond.answer)) {
@@ -40,7 +37,6 @@ export default function BackwardChaining() {
       }
     }
 
-    // Get next question
     const unanswered = Object.values(goals).flat().find(q => !(q.question in newAnswers));
     if (unanswered) {
       setCurrentQuestion(unanswered.question);
@@ -50,33 +46,26 @@ export default function BackwardChaining() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 text-center"
-    >
-      <div className="bg-white p-6 rounded-2xl shadow-lg max-w-md w-full">
-        <h1 className="text-xl font-bold mb-4">Skal jeg tage hjem?</h1>
-        {conclusion ? (
-          <motion.p className="text-lg font-semibold text-green-600">{conclusion}</motion.p>
-        ) : (
-          <motion.div>
-            <p className="text-lg mb-4">{currentQuestion}</p>
-            <div className="flex space-x-4">
-              <button
-                className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
-                onClick={() => handleAnswer("Yes")}>
-                Ja
-              </button>
-              <button
-                className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600"
-                onClick={() => handleAnswer("No")}>
-                Nej
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
+    <div className={style.container}>
+      <h1>Skal jeg tage hjem?</h1>
+      <p>{conclusion ? conclusion : currentQuestion}</p>
+
+      {!conclusion && (
+        <div>
+          <button
+            onClick={() => handleAnswer("Yes")}
+            style={{ backgroundColor: "green" }}
+          >
+            Ja
+          </button>
+          <button
+            onClick={() => handleAnswer("No")}
+            style={{ backgroundColor: "red" }}
+          >
+            Nej
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
