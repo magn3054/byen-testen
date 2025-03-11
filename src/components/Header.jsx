@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
-import mystyle from "./Header.module.css";
+import style from "./Header.module.css";
 import logo from "../assets/byen-testen.svg";
 
 export default function Header() {
 
     return (
         <header>
-            <nav className={mystyle.navigation}>
+            <Link className={style.logo} to="/"><img src={logo} alt="logo"/></Link>
+            <nav className={style.navigation}>
                 <p>
-                    <Link className={mystyle.linktext} to="/"> <img src={logo} alt="logo"/></Link>
+                    <Link className={style.linktext} to="/forward">Gik du kold i går?</Link>
                 </p>
                 <p>
-                    <Link className={mystyle.linktext} to="/forward">Gik du kold i går?</Link>
-                </p>
-                <p>
-                    <Link className={mystyle.linktext} to="/backward">Skal du hjem?</Link>
+                    <Link className={style.linktext} to="/backward">Skal du hjem?</Link>
                 </p>
             </nav>
         </header>
