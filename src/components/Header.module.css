@@ -8,7 +8,7 @@
 
 
 .logo {
-    height: 500px; /* Juster efter behov */
+width: 200%;
 }
 
 .links {
@@ -19,5 +19,5 @@
 .linktext {
     color: white;
     text-decoration: none;
-    font-size: large;
+    font-size: 150%;
 }
