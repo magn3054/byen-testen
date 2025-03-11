@@ -30,7 +30,7 @@ const decisionTree = {
                 Ja: {
                   question: "Er det din egen seng?",
                   options: {
-                    Ja: "You're fucked og gik kold",
+                    Ja: "You are fucked og gik kold",
                     Nej: "Du gik kold STIK AF!!",
                   },
                 },
