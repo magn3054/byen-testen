@@ -11,22 +11,21 @@ export default function DefaultPage() {
 
     return (
         <div>
-        <section style={{ }}>
-            <h1>BYEN TESTEN</h1>
-            <div className={mystyle.flexcards}>
-                {itemlist.map((item, index) => (
-                    <div key={index} className={mystyle.card}>
-                        <Link to={`/${item.id}`}>
-                            <h1>{item.name}</h1>
-                            <p>{item.desc}</p>
-                        </Link>
-                    </div>
-                ))}
-            </div>
-        </section>
-
+            <section style={{}}>
+                <h1>BYEN TESTEN</h1>
+                <div className={mystyle.flexcards}>
+                    {itemlist.map((item, index) => (
+                        <div key={index} className={mystyle.card}>
+                            <Link to={`/${item.id}`}>
+                                <h1>{item.name}</h1>
+                                <p>{item.desc}</p>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            </section>
         </div>
-        
+
     )
 
 }
