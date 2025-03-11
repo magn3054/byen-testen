@@ -32,26 +32,34 @@ body {
 }
 
 a {
-  font-weight: 500;
-  color: #283F57;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #2d185b;
   transition: 0.3s;
   text-decoration: none;
+}
+
+a h1 {
+  font-weight: 500;
+  color: #2d185b;
+}
+
+a:hover h1 {
+  color: #283F57;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
   margin: 2rem;
+  color: white;
 }
 
 h2 {
   font-size: 1.5rem;
   margin: 1rem;
+  color: #2d185b;
 }
 
 section {
@@ -70,7 +78,6 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 8px;
-  /* background-color: option === "Yes" ? "#4CAF50" : "#F44336"; */
   background-color: green;
   color: white;
 }

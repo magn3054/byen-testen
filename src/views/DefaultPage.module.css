@@ -1,18 +1,19 @@
 .card {
-    background-color: #D9D9D9; /* Blå farve */
     color: white;
-    border: none;
-    border-radius: 4px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .card p {
     margin: 8px 0;
 }
-
 
 .flexcards {
     display: flex;
@@ -28,3 +29,5 @@
 .button:active {
     background-color: #000000; /* Endnu mørkere blå farve ved aktivt klik */
 }
+
+

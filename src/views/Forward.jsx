@@ -59,9 +59,13 @@ export default function DecisionTree() {
   };
 
   const goBack = () => {
+    setHistory(history.slice(0, -1));
+  };
+
+  const reset = () => {
     if (history.length > 1) {
-      setHistory(history.slice(0, -1));
-    }
+      setHistory([decisionTree]);
+    };
   };
 
   return (
@@ -80,11 +84,16 @@ export default function DecisionTree() {
             </button>
           ))}
         </div>
-        {history.length > 1 && (
-          <button onClick={goBack} className={style.backbutton}>
-            Tilbage
-          </button>
-        )}
+          {history.length > 1 && (
+            <button onClick={goBack} className={style.backbutton}>
+              Tilbage
+            </button>
+          )}
+          {history.length > 1 && (
+            <button onClick={reset} className={style.backbutton}>
+              Start forfra
+            </button>
+          )}
       </section>
     </div>
   );

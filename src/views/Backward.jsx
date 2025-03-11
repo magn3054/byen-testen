@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./Backward.module.css";
+import style from "./Forward.module.css";
 
 const goals = {
   "Tag hjem": [
@@ -48,7 +48,7 @@ export default function BackwardChaining() {
   return (
     <div className={style.container}>
       <h1>Skal jeg tage hjem?</h1>
-      <p>{conclusion ? conclusion : currentQuestion}</p>
+      <h2>{conclusion ? conclusion : currentQuestion}</h2>
 
       {!conclusion && (
         <div>
