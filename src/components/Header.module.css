@@ -1,19 +1,38 @@
+header {
+    border: green solid 1px;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .navigation {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
     background-color: #688DB4;
-    padding: 10px 20px;
 }
 
+.navigation * {
+    border: red solid 1px;
+}
 
 .logo {
-width: 200%;
+    height: 2.5rem;
+    border: none;
+    font-weight: initial;
+    color: initial;
 }
 
-.links {
+img {
+    height: 100%;
+}
+
+.link {
+    border: green solid 1px;
     display: flex;
     gap: 20px;
+    background-color: red;
 }
 
 .linktext {

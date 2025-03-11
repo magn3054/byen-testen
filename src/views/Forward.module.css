@@ -2,14 +2,3 @@
     text-align: "center";
     padding: "20px";
 }
-
-.button {
-    margin: "8px",;
-    padding: "12px 24px";
-    font-size: "18px";
-    cursor: "pointer";
-    border: "none";
-    border: "8px";
-    color: "white";
-    transition: "background 0.3s";
-}
