@@ -1,0 +1,8 @@
+.videoGif {
+    position: fixed;  
+    bottom: 10px;
+    right: 10px;      
+    width: 500px;
+    height: auto;
+    z-index: 1000;
+}
