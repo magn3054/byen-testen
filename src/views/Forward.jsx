@@ -86,18 +86,9 @@ export default function DecisionTree() {
                 onClick={() => handleChoice(option)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                // style={{
-                //   margin: "8px",
-                //   padding: "12px 24px",
-                //   fontSize: "18px",
-                //   cursor: "pointer",
-                //   border: "none",
-                //   borderRadius: "8px",
-                //   backgroundColor: option === "Yes" ? "#4CAF50" : "#F44336",
-                //   color: "white",
-                //   transition: "background 0.3s",
-                // }}
-
+                style={{
+                  backgroundColor: option === "Yes" ? "green" : "red",
+                }}
               >
                 {option}
               </motion.button>
