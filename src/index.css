@@ -45,6 +45,11 @@ h1 {
   line-height: 1.1;
 }
 
+p {
+  font-size: "20px";
+  margin-bottom: "15px";
+}
+
 button {
   margin: 16px;
   padding: 12px 24px;
@@ -55,7 +60,6 @@ button {
   /* background-color: option === "Yes" ? "#4CAF50" : "#F44336"; */
   background-color: green;
   color: white;
-  transition: "background 0.3s";
 }
 
 button:hover {
