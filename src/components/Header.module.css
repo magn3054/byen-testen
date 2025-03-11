@@ -1,7 +1,5 @@
 header {
-    border: green solid 1px;
     width: 100%;
-    background-color: red;
     display: flex;
     justify-content: space-evenly;
 }
@@ -9,16 +7,17 @@ header {
 .navigation {
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
-    background-color: #688DB4;
-}
-
-.navigation * {
-    border: red solid 1px;
+    justify-content: right;
+    gap: 10%;
+    padding-right: 20px;
+    background-color: #5a58e3;
+    align-items: center;
+    font-size: 100%;
 }
 
 .logo {
-    height: 2.5rem;
+    height: 8rem;
+    padding: 20px;
     border: none;
     font-weight: initial;
     color: initial;
@@ -38,5 +37,5 @@ img {
 .linktext {
     color: white;
     text-decoration: none;
-    font-size: large;
+    font-size: 150%;
 }

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 import mystyle from "./DefaultPage.module.css";
+import Gif from "../components/Bajer";
+
 
 export default function DefaultPage() {
 
@@ -9,6 +11,7 @@ export default function DefaultPage() {
     ]
 
     return (
+        <div>
         <section style={{ }}>
             <h1>BYEN TESTEN</h1>
             <div className={mystyle.flexcards}>
@@ -22,5 +25,11 @@ export default function DefaultPage() {
                 ))}
             </div>
         </section>
+
+        <Gif /> 
+        </div>
+        
     )
+
+
 }
